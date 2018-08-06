@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../src/User/IssuerPriKey.h"
+#include "../src/User/IssuerPriKey.hpp"
 
 TEST(ISSUER, GENPRIKEY)
 {
