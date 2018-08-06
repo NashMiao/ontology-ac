@@ -1,2 +1,2 @@
-# AnonymousCredential
-ontology-ac
+# Ontology Anonymous Credential
+
