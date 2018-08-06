@@ -21,10 +21,10 @@
             }]
         },
         {
-            "name": "(gdb) Test Launch",
+            "name": "(gdb) Test User Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/test",
+            "program": "${workspaceFolder}/bin/test_user",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
