@@ -1,33 +1,34 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
+#include <boost/algorithm/string.hpp>
 #include <gtest/gtest.h>
 
-#include "../src/User/IssuerPriKey.h"
-
-#include <mcl/bn256.hpp>
+#include "../src/User/IssuerPriKey.hpp"
+#include "../src/User/IssuerPubKey.hpp"
 
 TEST(ISSUER, GENPRIKEY)
 {
   User::IssuerPriKey key;
-  EXPECT_EQ(64, key.getPriKey().length());
-  
-  mcl::bn256::G1 P0, P1, P2;
-  mcl::bn256::Fr s;
-  int i=1;
-  mcl::bn256::mapToG1(P0, i);
-  s.setStr("1");
-  mpz_class ss = s.getMpz();
-  mcl::bn256::G1::mulGeneric(P1, P0, ss);
-  std::cout << P1.getStr() << std::endl;
+  std::string pri_key;
+  key.getStrPriKey(pri_key, 16);
+  EXPECT_EQ(256, pri_key.length());
+}
 
-  mcl::bn256::G1 P20, P21, P22;
-  mcl::bn256::Fr s2;
-  mcl::bn256::mapToG1(P0, i);
-  s2.setStr("2");
-  mpz_class ss2 = s2.getMpz();
-  mcl::bn256::G1::mulGeneric(P21, P20, ss2);
-  std::cout << P21.getStr() << std::endl;
+TEST(ISSUER, GENPUBKEY)
+{
+  User::IssuerPriKey PriKey;
+  mpz_class pri_key;
+  PriKey.getMpzPriKey(pri_key);
+  User::IssuerPubKey PubKey;
+  PubKey.genPubKey(pri_key);
+  std::string pub_key;
+  PubKey.getStrPubKey(pub_key, 16);
+  std::vector<std::string> split_vec;
+  boost::split(split_vec, pub_key, boost::is_any_of(" "),
+               boost::token_compress_on);
+  EXPECT_EQ(split_vec.size(), 5);
 }
 
 int main(int argc, char **argv)

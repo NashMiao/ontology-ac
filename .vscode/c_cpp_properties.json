@@ -20,7 +20,8 @@
                 "${workspaceFolder}/src/io",
                 "${workspaceFolder}/src/network",
                 "${workspaceFolder}/src/sdk",
-                "${workspaceFolder}/src/smartcontract"
+                "${workspaceFolder}/src/smartcontract",
+                "${workspaceFolder}/src/User"
             ],
             "configurationProvider": "vector-of-bool.cmake-tools"
         }

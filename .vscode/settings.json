@@ -68,9 +68,10 @@
         "/usr/local/include/",
         "${workspaceFolder}",
         "${workspaceRoot}",
-        "${workspaceRoot}/src/"
+        "${workspaceRoot}/src/",
+        "${workspaceRoot}/User/"
     ],
     "code-runner.executorMap": {
-        "cpp": "cd $dir && g++ $fileName -lmcl -lrt -lgmp -lgmpxx -lcrypto -m64 `pkg-config --cflags gtest_main --libs openssl libcurl gtest_main` -Wall -g -O0 -std=c++11 -o $workspaceRoot/bin/$fileNameWithoutExt && $workspaceRoot/bin/$fileNameWithoutExt && rm $workspaceRoot/bin/$fileNameWithoutExt"
+        "cpp": "cd $dir && g++ $fileName -lmcl -lrt -lgmp -lgmpxx -lcrypto -m64 `pkg-config --cflags gtest_main --libs openssl libcurl gtest_main` -Wall -g -O0 -std=c++11 -o $workspaceRoot/bin/$fileNameWithoutExt && $workspaceRoot/bin/$fileNameWithoutExt"
     }
 }
