@@ -4,10 +4,7 @@
 #include <string>
 #include <vector>
 
-#include <cybozu/random_generator.hpp>
-#include <mcl/bn256.hpp>
-#include <mcl/ecparam.hpp>
-#include <mcl/gmp_util.hpp>
+#include <amcl/big.h>
 
 namespace User
 {

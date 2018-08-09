@@ -62,16 +62,19 @@
         "deque": "cpp",
         "numeric": "cpp",
         "optional": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "relic.h": "c",
+        "stdlib.h": "c"
     },
     "C_Cpp.default.includePath": [
         "/usr/local/include/",
         "${workspaceFolder}",
         "${workspaceRoot}",
         "${workspaceRoot}/src/",
-        "${workspaceRoot}/User/"
+        "${workspaceRoot}/src/User/"
     ],
     "code-runner.executorMap": {
-        "cpp": "cd $dir && g++ $fileName -lmcl -lrt -lgmp -lgmpxx -lcrypto -m64 `pkg-config --cflags gtest_main --libs openssl libcurl gtest_main` -Wall -g -O0 -std=c++11 -o $workspaceRoot/bin/$fileNameWithoutExt && $workspaceRoot/bin/$fileNameWithoutExt"
+        "c": "cd $dir && gcc $fileName -lrelic_s -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -lamcl -lrt -lgmp -lgmpxx -lcrypto -m64 `pkg-config --cflags gtest_main --libs openssl libcurl gtest_main` -Wall -g -O0 -std=c++11 -o $workspaceRoot/bin/$fileNameWithoutExt && $workspaceRoot/bin/$fileNameWithoutExt"
     }
 }
